@@ -1,61 +1,58 @@
-# HSM: High-Performance Hardware Security Module
+# **HSM: High-Performance Hardware Security Module**
 
-This repository, **HSM**, is a high-performance cryptographic library in C++ designed to ensure secure data encryption, decryption, and authentication within automotive hardware environments. Developed as part of a Vehicle Computing Simulator in collaboration with mentors from **Mobileye** and **Extra Tech**, this project leverages cutting-edge technologies like **multithreading**, **Intel oneAPI GPU acceleration**, and **gRPC** for secure communication. 
+Welcome to the **HSM (Hardware Security Module)** repository—a high-performance C++ cryptographic library designed to secure data encryption, decryption, and authentication in automotive hardware environments. This project, developed under the mentorship of **Mobileye** and **Extra Tech**, is part of a broader **Vehicle Computing Simulator** initiative, combining multithreading, **Intel oneAPI GPU acceleration**, and **gRPC** for secure and efficient communication.
 
-The HSM is tailored for flexibility, supporting both **SYCL-enabled GPUs** and **CPU-only environments**, and is deployable on a variety of hardware platforms, including **Raspberry Pi**, while being scalable for integration into larger embedded systems.
-
----
-
-## Key Features
-
-### Cryptographic Functionality
-- **Symmetric and Asymmetric Encryption**: Implements algorithms like AES, RSA, ECC, and digital signatures to secure communication and authenticate data.
-- **PKCS#11 Standard Support**: Enables secure key management and cryptographic operations aligned with industry standards.
-- **Multithreaded Architecture**: Optimized to handle concurrent encryption and authentication requests efficiently.
-- **GPU Acceleration**: Utilizes Intel oneAPI and SYCL for cryptographic computations, ensuring high performance even under heavy data loads.
-
-### Simulation and Integration
-- **Seamless CAN Bus Communication**: Simulates in-vehicle communication using encrypted data, enabling realistic validation scenarios.
-- **Extensibility**: Easily integrates new cryptographic algorithms or components with minimal code adjustments.
-- **Predefined Encryption Configurations**: Simplifies integration by providing predefined encryption settings and user-friendly interfaces.
+HSM is built for flexibility, supporting both **SYCL-enabled GPUs** and **CPU-only environments**, making it deployable across diverse hardware platforms, including **Raspberry Pi**. The module ensures robust cryptographic capabilities for secure in-vehicle communication simulations.
 
 ---
 
-## Project Context
+## **Key Features**
 
-### Objective
-The HSM is a component of a larger **Vehicle Computing Simulator**, designed to provide a secure environment for testing and validating vehicle communication systems. By simulating cryptographic processes, it reduces costs and risks associated with real-world deployment, enabling:
-- Realistic simulation of secure communication over CAN Bus.
-- Rapid testing of custom and off-the-shelf computing components.
-- Flexible integration with encrypted and authenticated communication protocols.
+### **Cryptographic Capabilities**
+- **Symmetric and Asymmetric Encryption**: Implements advanced algorithms like AES, RSA, and ECC, alongside digital signatures for data authenticity.
+- **PKCS#11 Standard Support**: Securely manages keys and cryptographic operations according to industry standards.
+- **Multithreaded Architecture**: Optimized for high performance, capable of handling concurrent encryption and decryption requests.
+- **GPU Acceleration**: Leverages **Intel oneAPI** and **SYCL** for high-speed cryptographic computations on supported GPUs.
 
-### Deployment Environment
-- **Server**: Runs on a **Raspberry Pi** for lightweight deployment.
-- **Client**: Integrated with vehicle simulation components as a shared library (`.so`) using **gRPC** for secure communication.
+### **Simulation and Integration**
+- **CAN Bus Communication Simulation**: Enables realistic encrypted data transmission for in-vehicle communication testing.
+- **Modular and Extensible**: Easily integrates new cryptographic algorithms and components with minimal configuration.
+- **Predefined Encryption Configurations**: Provides user-friendly, ready-to-use cryptographic settings for seamless integration.
 
 ---
 
-## Technical Details
+## **Project Overview**
 
-### Architecture
+### **Objective**
+The **HSM** is a core component of the **Vehicle Computing Simulator**, a platform for securely simulating cryptographic operations within automotive systems. It allows developers to:
+- Simulate secure communication over CAN Bus for testing purposes.
+- Minimize costs and risks associated with real-world testing.
+- Ensure flexible, authenticated communication using advanced cryptographic protocols.
+
+### **Deployment**
+- **Server**: Deployed on a **Raspberry Pi** for lightweight testing.
+- **Client**: Integrated into simulation components via a shared library (`.so`) and communicates with the server using **gRPC**.
+
+---
+
+## **Technical Highlights**
+
+### **System Architecture**
 - **Client-Server Model**:
-  - **Client**: Provides an easy-to-use interface for simulation components, abstracts complexity, and sends cryptographic requests to the server.
-  - **Server**: Handles encryption, decryption, and key management on dedicated hardware, utilizing SYCL for GPU acceleration where available.
+  - **Client**: Simplifies integration by abstracting cryptographic complexities and forwarding requests to the server.
+  - **Server**: Executes cryptographic operations (encryption, decryption, key management) using GPU acceleration (SYCL-enabled) or CPUs.
 
-### Technology Stack
-- **C++**: Chosen for its performance, memory control, and compatibility with embedded systems.
-- **Intel oneAPI & SYCL**: Accelerates cryptographic computations on GPUs.
-- **gRPC**: Ensures secure and efficient client-server communication.
-- **GMP Library**: Supports cryptographic operations with large numbers.
-
----
-
-## Benefits
-- **Cost Savings**: Simulates cryptographic operations, eliminating the need for costly physical testing environments.
-- **Enhanced Security**: Implements advanced encryption and key management to protect sensitive data in simulation scenarios.
-- **Flexibility**: Scales across various hardware setups, from Raspberry Pi to larger systems.
-- **User-Friendly Design**: Includes intuitive interfaces for managing encryption levels and algorithms.
+### **Technology Stack**
+- **C++**: Core language for cryptographic operations and performance optimization.
+- **Intel oneAPI & SYCL**: Enables accelerated cryptographic processing on compatible GPUs.
+- **gRPC**: Provides secure, encrypted communication between the client and server.
+- **GMP Library**: Supports large-number arithmetic for cryptographic calculations.
 
 ---
 
-This project stands as a significant step forward in secure automotive communication, combining cutting-edge cryptographic techniques with practical, real-world deployment strategies. Let me know if additional refinements are needed!
+## **Advantages**
+- **Cost-Effective Simulation**: Eliminates the need for physical environments by securely simulating cryptographic operations.
+- **Enhanced Security**: Implements industry-standard encryption and authentication to safeguard sensitive vehicle data.
+- **Hardware Flexibility**: Deployable on various platforms, from lightweight devices like Raspberry Pi to powerful servers.
+- **Developer-Friendly**: Offers intuitive APIs and configurations for seamless integration into simulation workflows.
+
